@@ -1,0 +1,539 @@
+/* Importation de la police Google Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+/* Application de styles globaux à tous les éléments */
+* {
+  margin: 0; /* Supprime la marge par défaut */
+  padding: 0; /* Supprime le padding par défaut */
+  box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur et la hauteur totale de l'élément */
+  font-family: "Poppins", sans-serif; /* Définit la famille de polices à Poppins */
+}
+
+/* Styles de la barre latérale */
+.sidebar {
+  position: fixed; /* Fixe la barre latérale à la fenêtre */
+  height: 100%; /* Hauteur complète de la fenêtre */
+  width: 240px; /* Définit la largeur de la barre latérale */
+  background: #0a2558; /* Couleur de fond */
+}
+
+/* Barre latérale en état actif */
+.sidebar.active {
+  width: 60px; /* Largeur réduite lorsqu'elle est active */
+}
+
+/* Détails du logo à l'intérieur de la barre latérale */
+.sidebar .logo-details {
+  height: 80px; /* Hauteur de la section du logo */
+  display: flex; /* Flexbox pour l'alignement */
+  align-items: center; /* Centre les éléments verticalement */
+}
+
+/* Icône à l'intérieur des détails du logo */
+.sidebar .logo-details i {
+  font-size: 28px; /* Taille de l'icône */
+  font-weight: 500; /* Poids de l'icône */
+  color: #fff; /* Couleur de l'icône */
+  min-width: 60px; /* Largeur minimale pour l'alignement */
+  text-align: center; /* Centre le texte */
+}
+
+/* Texte du nom du logo */
+.sidebar .logo-details .logo_name {
+  color: #fff; /* Couleur du texte */
+  font-size: 24px; /* Taille de la police */
+  font-weight: 500; /* Poids de la police */
+}
+
+/* Conteneur des liens de navigation */
+.sidebar .nav-links {
+  margin-top: 10px; /* Espace en haut */
+}
+
+/* Lien de navigation individuel */
+.sidebar .nav-links li {
+  position: relative; /* Positionnement relatif pour le style ultérieur */
+  list-style: none; /* Supprime le style de liste */
+  height: 50px; /* Hauteur de chaque lien */
+}
+
+/* Styles de lien */
+.sidebar .nav-links li a {
+  height: 100%; /* Hauteur complète */
+  width: 100%; /* Largeur complète */
+  display: flex; /* Flexbox pour l'alignement */
+  align-items: center; /* Centre les éléments verticalement */
+  text-decoration: none; /* Supprime le soulignement */
+}
+
+/* Styles de lien actif */
+.sidebar .nav-links li a.active {
+  background: #081d45; /* Couleur de fond pour le lien actif */
+}
+
+/* Effet de survol pour les liens */
+.sidebar .nav-links li a:hover {
+  background: #081d45; /* Couleur de fond au survol */
+}
+
+/* Icône à l'intérieur des liens de navigation */
+.sidebar .nav-links li i {
+  min-width: 60px; /* Largeur minimale pour l'alignement */
+  text-align: center; /* Centre le texte */
+  font-size: 18px; /* Taille de la police */
+  color: #fff; /* Couleur de l'icône */
+}
+
+/* Texte du lien */
+.sidebar .nav-links li a .links_name {
+  color: #fff; /* Couleur du texte */
+  font-size: 15px; /* Taille de la police */
+  font-weight: 400; /* Poids de la police */
+  white-space: nowrap; /* Empêche le texte de se décomposer */
+}
+
+/* Positionnement du lien de déconnexion */
+.sidebar .nav-links .log_out {
+  position: absolute; /* Positionnement absolu */
+  bottom: 0; /* Aligne en bas */
+  width: 100%; /* Largeur complète */
+}
+
+/* Styles de la section principale */
+.home-section {
+  position: relative; /* Positionnement relatif */
+  background: #f5f5f5; /* Couleur de fond */
+  min-height: 100vh; /* Hauteur minimale de la fenêtre */
+  width: calc(100% - 240px); /* Largeur moins la largeur de la barre latérale */
+  left: 240px; /* Décalage par rapport à la barre latérale */
+}
+
+/* Section principale lorsque la barre latérale est active */
+.sidebar.active ~ .home-section {
+  width: calc(100% - 60px); /* Ajuste la largeur */
+  left: 60px; /* Ajuste la position à gauche */
+}
+
+/* Styles de la barre de navigation */
+.home-section nav {
+  display: flex; /* Flexbox pour l'alignement */
+  justify-content: space-between; /* Espace entre les éléments */
+  height: 80px; /* Hauteur de la barre de navigation */
+  background: #fff; /* Couleur de fond */
+  align-items: center; /* Centre les éléments verticalement */
+  position: fixed; /* Fixe à la fenêtre */
+  width: calc(100% - 240px); /* Largeur moins la largeur de la barre latérale */
+  left: 240px; /* Décalage par rapport à la barre latérale */
+  padding: 0 20px; /* Padding à gauche et à droite */
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
+
+/* Barre de navigation lorsque la barre latérale est active */
+.sidebar.active ~ .home-section nav {
+  left: 60px; /* Ajuste la position à gauche */
+  width: calc(100% - 60px); /* Ajuste la largeur */
+}
+
+/* Styles du bouton de la barre latérale */
+.home-section nav .sidebar-button {
+  display: flex; /* Flexbox pour l'alignement */
+  align-items: center; /* Centre les éléments verticalement */
+  font-size: 24px; /* Taille de la police */
+  font-weight: 500; /* Poids de la police */
+}
+
+/* Icône à l'intérieur du bouton de la barre latérale */
+nav .sidebar-button i {
+  font-size: 35px; /* Taille de l'icône */
+  margin-right: 10px; /* Marge à droite */
+}
+
+/* Conteneur de la boîte de recherche */
+.home-section nav .search-box {
+  position: relative; /* Positionnement relatif */
+  height: 50px; /* Hauteur de la boîte de recherche */
+  max-width: 550px; /* Largeur maximale */
+  width: 100%; /* Largeur complète */
+  margin: 0 20px; /* Marge à gauche et à droite */
+}
+
+/* Champ de saisie de la boîte de recherche */
+nav .search-box input {
+  height: 100%; /* Hauteur complète */
+  width: 100%; /* Largeur complète */
+  outline: none; /* Supprime le contour */
+  background: #f5f6fa; /* Couleur de fond */
+  border: 2px solid #efeef1; /* Couleur et largeur de la bordure */
+  border-radius: 6px; /* Coins arrondis */
+  font-size: 18px; /* Taille de la police */
+  padding: 0 15px; /* Padding intérieur */
+}
+
+/* Icône de recherche à l'intérieur de la boîte de recherche */
+nav .search-box .bx-search {
+  position: absolute; /* Positionnement absolu */
+  height: 40px; /* Hauteur de la boîte d'icône */
+  width: 40px; /* Largeur de la boîte d'icône */
+  background: #2697ff; /* Couleur de fond */
+  right: 5px; /* Position à droite */
+  top: 50%; /* Centre verticalement */
+  transform: translateY(-50%); /* Ajuste la position verticale */
+  border-radius: 4px; /* Coins arrondis */
+  line-height: 40px; /* Hauteur de ligne */
+  text-align: center; /* Centre le texte */
+  color: #fff; /* Couleur de l'icône */
+  font-size: 22px; /* Taille de la police */
+}
+
+/* Conteneur des détails du profil */
+.home-section nav .profile-details {
+  display: flex; /* Flexbox pour l'alignement */
+  align-items: center; /* Centre les éléments verticalement */
+  background: #f5f6fa; /* Couleur de fond */
+  border: 2px solid #efeef1; /* Couleur et largeur de la bordure */
+  border-radius: 6px; /* Coins arrondis */
+  height: 50px; /* Hauteur du conteneur */
+  min-width: 190px; /* Largeur minimale */
+  padding: 0 15px 0 2px; /* Padding intérieur */
+}
+
+/* Image du profil */
+nav .profile-details img {
+  height: 40px; /* Hauteur de l'image */
+  width: 40px; /* Largeur de l'image */
+  border-radius: 6px; /* Coins arrondis */
+  object-fit: cover; /* Adapte l'image */
+}
+
+/* Nom du profil */
+nav .profile-details .admin_name {
+  font-size: 15px; /* Taille de la police */
+  font-weight: 500; /* Poids de la police */
+  color: #333; /* Couleur du texte */
+  margin: 0 10px; /* Marge à gauche et à droite */
+  white-space: nowrap; /* Empêche le texte de se décomposer */
+}
+
+/* Icône de déconnexion */
+nav .profile-details i {
+  font-size: 25px; /* Taille de l'icône */
+  color: #333; /* Couleur de l'icône */
+}
+
+/* Styles du contenu principal */
+.home-content {
+  position: relative; /* Positionnement relatif */
+  padding-top: 104px; /* Espace en haut */
+}
+
+/* Conteneur des boîtes de vue d'ensemble */
+.home-content .overview-boxes {
+  display: flex; /* Flexbox pour l'alignement */
+  align-items: center; /* Centre les éléments verticalement */
+  justify-content: space-between; /* Espace entre les éléments */
+  flex-wrap: wrap; /* Permet de passer à la ligne */
+  padding: 0 20px; /* Padding à gauche et à droite */
+  margin-bottom: 26px; /* Marge en bas */
+}
+
+/* Boîte individuelle dans la vue d'ensemble */
+.home-content .overview-boxes .box {
+  display: flex; /* Flexbox pour l'alignement */
+  align-items: center; /* Centre les éléments verticalement */
+  justify-content: center; /* Centre les éléments horizontalement */
+  width: calc(100% / 4 - 15px); /* Largeur de chaque boîte */
+  background: #fff; /* Couleur de fond */
+  padding: 15px 14px; /* Padding intérieur */
+  border-radius: 12px; /* Coins arrondis */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
+
+/* Texte de la boîte */
+.overview-boxes .box-topic {
+  font-size: 20px; /* Taille de la police */
+  font-weight: 500; /* Poids de la police */
+}
+
+/* Nombre à l'intérieur de la boîte */
+.home-content .box .number {
+  display: inline-block; /* Affichage en ligne */
+  font-size: 35px; /* Taille de la police */
+  margin-top: -6px; /* Marge négative en haut */
+  font-weight: 500; /* Poids de la police */
+}
+
+/* Indicateur à l'intérieur de la boîte */
+.home-content .box .indicator {
+  display: flex; /* Flexbox pour l'alignement */
+  align-items: center; /* Centre les éléments verticalement */
+}
+
+/* Icône à l'intérieur de l'indicateur */
+.home-content .box .indicator i {
+  height: 20px; /* Hauteur de l'icône */
+  width: 20px; /* Largeur de l'icône */
+  background: #8fdacb; /* Couleur de fond */
+  line-height: 20px; /* Hauteur de ligne */
+  text-align: center; /* Centre le texte */
+  border-radius: 50%; /* Forme arrondie */
+  color: #fff; /* Couleur de l'icône */
+  font-size: 20px; /* Taille de la police */
+  margin-right: 5px; /* Marge à droite */
+}
+
+/* Icône d'indicateur vers le bas */
+.box .indicator i.down {
+  background: #e87d88; /* Couleur de fond pour l'indicateur vers le bas */
+}
+
+/* Texte de l'indicateur */
+.home-content .box .indicator .text {
+  font-size: 12px; /* Taille de la police */
+}
+
+/* Icône de chariot à l'intérieur de la boîte */
+.home-content .box .cart {
+  display: inline-block; /* Affichage en ligne */
+  font-size: 32px; /* Taille de la police */
+  height: 50px; /* Hauteur */
+  width: 50px; /* Largeur */
+  background: #cce5ff; /* Couleur de fond */
+  line-height: 50px; /* Hauteur de ligne */
+  text-align: center; /* Centre le texte */
+  color: #66b0ff; /* Couleur de l'icône */
+  border-radius: 12px; /* Coins arrondis */
+  margin: -15px 0 0 6px; /* Marge */
+}
+
+/* Différentes couleurs de chariot */
+.home-content .box .cart.two {
+  color: #2bd47d; /* Couleur de l'icône */
+  background: #c0f2d8; /* Couleur de fond */
+}
+.home-content .box .cart.three {
+  color: #ffc233; /* Couleur de l'icône */
+  background: #ffe8b3; /* Couleur de fond */
+}
+.home-content .box .cart.four {
+  color: #e05260; /* Couleur de l'icône */
+  background: #f7d4d7; /* Couleur de fond */
+}
+
+/* Texte de commande totale */
+.home-content .total-order {
+  font-size: 20px; /* Taille de la police */
+  font-weight: 500; /* Poids de la police */
+}
+
+/* Conteneur des boîtes de ventes */
+.home-content .sales-boxes {
+  display: flex; /* Flexbox pour l'alignement */
+  justify-content: space-between; /* Espace entre les éléments */
+}
+
+/* Boîte des ventes récentes */
+.home-content .sales-boxes .recent-sales {
+  width: 65%; /* Largeur de la boîte */
+  background: #fff; /* Couleur de fond */
+  padding: 20px 30px; /* Padding intérieur */
+  margin: 0 20px; /* Marge sur les côtés */
+  border-radius: 12px; /* Coins arrondis */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
+
+/* Détails des ventes à l'intérieur de la boîte de ventes récentes */
+.home-content .sales-boxes .sales-details {
+  display: flex; /* Flexbox pour l'alignement */
+  align-items: center; /* Centre les éléments verticalement */
+  justify-content: space-between; /* Espace entre les éléments */
+}
+
+/* Titre de la boîte */
+.sales-boxes .box .title {
+  font-size: 24px; /* Taille de la police */
+  font-weight: 500; /* Poids de la police */
+}
+
+
+.sales-boxes .sales-details td {
+  font-size: 18px; /* Taille de la police */
+  color: #333; /* Couleur du texte */
+  font-weight: 400; /* Poids de la police */
+}
+
+/* Bouton à l'intérieur de la boîte */
+.sales-boxes .box .button {
+  width: 100%; /* Largeur complète */
+  display: flex; /* Flexbox pour l'alignement */
+  justify-content: flex-end; /* Aligne à la fin */
+}
+
+/* Lien à l'intérieur du bouton */
+.sales-boxes .box .button a {
+  color: #fff; /* Couleur du texte */
+  background: #0a2558; /* Couleur de fond */
+  padding: 4px 12px; /* Padding intérieur */
+  font-size: 15px; /* Taille de la police */
+  font-weight: 400; /* Poids de la police */
+  border-radius: 4px; /* Coins arrondis */
+  text-decoration: none; /* Supprime le soulignement */
+}
+
+/* Effet de survol pour le bouton */
+.sales-boxes .box .button a:hover {
+  background: #0d3073; /* Couleur de fond au survol */
+}
+
+/* Boîte des meilleures ventes */
+.home-content .sales-boxes .top-sales {
+  width: 35%; /* Largeur de la boîte */
+  background: #fff; /* Couleur de fond */
+  padding: 20px 30px; /* Padding intérieur */
+  margin: 0 20px 0 0; /* Marge sur les côtés */
+  border-radius: 12px; /* Coins arrondis */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+}
+
+/* Styles généraux pour la table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Poppins", sans-serif;
+  margin: 20px 0;
+}
+
+/* Style pour la légende du tableau */
+table caption.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Style pour les en-têtes de colonne */
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style pour les cellules de données */
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Ajouter de l'espace entre les lignes */
+tr {
+  margin-bottom: 10px;
+}
+
+/* Style pour les cellules de produit */
+td.product {
+  font-weight: 500;
+}
+
+/* Style pour les cellules de prix */
+td.price {
+  color: #ff5722;
+  font-weight: 600;
+}
+
+/* Ajouter un peu d'espace entre les cellules et les bords de la table */
+td, th {
+  padding: 15px;
+}
+
+/* Espacer les lignes du tableau */
+tr + tr {
+  margin-top: 10px;
+}
+
+/* Ajout d'un effet de survol pour les lignes */
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+
+
+
+/* Media Queries */
+
+/* Pour les écrans de moins de 1240px */
+@media (max-width: 1240px) {
+  .sidebar {
+    width: 60px; /* Réduit la largeur de la barre latérale */
+  }
+  .sidebar.active {
+    width: 220px; /* Ajuste la largeur lorsqu'elle est active */
+  }
+  .home-section {
+    width: calc(100% - 60px); /* Ajuste la largeur */
+    left: 60px; /* Ajuste la position à gauche */
+  }
+  .sidebar.active ~ .home-section {
+    overflow: hidden; /* Masque le débordement */
+    left: 220px; /* Ajuste la position à gauche */
+    width: calc(100% - 220px); /* Ajuste la largeur */
+  }
+  .home-section nav {
+    width: calc(100% - 60px); /* Ajuste la largeur */
+    left: 60px; /* Ajuste la position à gauche */
+  }
+  .sidebar.active ~ .home-section nav {
+    width: calc(100% - 220px); /* Ajuste la largeur */
+    left: 220px; /* Ajuste la position à gauche */
+  }
+}
+
+/* Pour les écrans de moins de 1150px */
+@media (max-width: 1150px) {
+  .home-content .sales-boxes {
+    flex-direction: column; /* Aligne les boîtes en colonne */
+  }
+  .home-content .sales-boxes .box {
+    width: 100%; /* Largeur complète */
+    overflow-x: scroll; /* Ajoute une barre de défilement horizontal */
+    margin-bottom: 30px; /* Marge en bas */
+  }
+  .home-content .sales-boxes .top-sales {
+    margin: 0; /* Supprime la marge */
+  }
+}
+
+/* Pour les écrans de moins de 1000px */
+@media (max-width: 1000px) {
+  .overview-boxes .box {
+    width: calc(100% / 2 - 15px); /* Ajuste la largeur des boîtes */
+    margin-bottom: 15px; /* Marge en bas */
+  }
+}
+
+/* Pour les écrans de moins de 700px */
+@media (max-width: 700px) {
+  nav .sidebar-button .dashboard,
+  nav .profile-details .admin_name,
+  nav .profile-details i {
+    display: none; /* Masque ces éléments */
+  }
+  .home-section nav .profile-details {
+    height: 50px; /* Ajuste la hauteur */
+    min-width: 40px; /* Largeur minimale */
+  }
+  .home-content .sales-boxes .sales-details {
+    width: 560px; /* Ajuste la largeur */
+  }
+}
+
+/* Pour les écrans de moins de 550px */
+@media (max-width: 550px) {
+  .overview-boxes .box {
+    width: 100%; /* Largeur complète */
+    margin-bottom: 15px; /* Marge en bas */
+  }
+  .sidebar.active ~ .home-section nav .profile-details {
+    display: none; /* Masque les détails du profil */
+  }
+}
